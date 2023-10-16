@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc @flags *.c
+clang @flags *.c
