@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			chars += (int)fn_control(++format, ap);
+			chars += fn_control(++format, ap);
 			format++;
 		}
 		_putchar(*format);

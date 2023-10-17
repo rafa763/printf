@@ -21,7 +21,7 @@ typedef struct fn_ops
 
 
 /* Function Prototypes */
-int (*fn_control(const char *s, va_list ap))(va_list ap);
+int fn_control(const char *s, va_list ap);
 int _putchar(char c);
 char *int_stringify(int num);
 int _printf(const char *format, ...);
