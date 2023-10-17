@@ -28,5 +28,6 @@ int _printf(const char *format, ...);
 int _char(va_list ap);
 int _string(va_list ap);
 int _int(va_list ap);
+char *base(char *num, int b);
 
 #endif /* _MAIN_H_ */
