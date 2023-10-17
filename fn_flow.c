@@ -10,7 +10,7 @@
  *
  * Return: the number of chars printed (int)
  */
-int (*fn_control(const char *s, va_list ap))(va_list ap)
+int fn_control(const char *s, va_list ap)
 {
 	fn_ops ops[] = {
 		{'c', _char},
@@ -19,15 +19,17 @@ int (*fn_control(const char *s, va_list ap))(va_list ap)
 		{'i', _int}
 	};
 	int i = 0;
+	int chars_printed = 0;
 
 	while (i < 4)
 	{
 		if (*s == ops[i].specifier)
 		{
-			(ops[i].control(ap));
+			chars_printed = ops[i].control(ap);
+			break;
 		}
 		i++;
 	}
 
-	return (NULL);
+	return (chars_printed);
 }
