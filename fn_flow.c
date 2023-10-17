@@ -25,7 +25,7 @@ int fn_control(const char *s, va_list ap)
 	{
 		if (*s == ops[i].specifier)
 		{
-			chars_printed = ops[i].control(ap);
+			chars_printed += ops[i].control(ap);
 			break;
 		}
 		i++;
