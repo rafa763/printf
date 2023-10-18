@@ -16,7 +16,7 @@ int fn_control(const char *s, va_list ap)
 		{'c', _char},
 		{'s', _string},
 		{'d', _int},
-		{'i', _int}
+		{'i', _int},
 	};
 	int i = 0;
 	int chars_printed = 0;
@@ -24,11 +24,15 @@ int fn_control(const char *s, va_list ap)
 	while (i < 4)
 	{
 		if (*s == ops[i].specifier)
-		{
 			chars_printed += ops[i].control(ap);
-			break;
-		}
 		i++;
+	}
+
+	if (chars_printed == 0)
+	{
+		_putchar('%');
+		_putchar(*s);
+		chars_printed += 2;
 	}
 
 	return (chars_printed);
