@@ -77,8 +77,9 @@ char *int_stringify(int num)
 	p = str;
 	while (num)
 	{
-		*str++ = num % 10 + '0';
+		*str = num % 10 + '0';
 		num /= 10;
+		str++;
 	}
 
 	if (negative)
@@ -87,9 +88,9 @@ char *int_stringify(int num)
 
 	for (i = 0; i < len / 2; i++)
 	{
-		char temp = p[i];
-		p[i] = p[len - 1 - i];
-		p[len - 1 - i] = temp;
+		p[i] ^= p[len - 1 - i];
+		p[len - 1 - i] ^= p[i];
+		p[i] ^= p[len - 1 - i];
 	}
 
 	return (p);
