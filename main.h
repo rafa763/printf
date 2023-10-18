@@ -28,6 +28,9 @@ int _printf(const char *format, ...);
 int _char(va_list ap);
 int _string(va_list ap);
 int _int(va_list ap);
+int _bin(va_list ap);
+int int_length(int num);
 char *base(char *num, int b);
+char *reverse_str(char *p, int size);
 
 #endif /* _MAIN_H_ */
