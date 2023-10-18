@@ -32,5 +32,6 @@ int _bin(va_list ap);
 int int_length(int num);
 char *base(char *num, int b);
 char *reverse_str(char *p, int size);
+int _rev(va_list ap);
 
 #endif /* _MAIN_H_ */
