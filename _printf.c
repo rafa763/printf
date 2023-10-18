@@ -13,21 +13,35 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int chars;
+	int i, chars;
 
 	va_start(ap, format);
 
 	chars = 0;
-	while (*format)
+
+	for (i = 0; format[i]; i++)
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			chars += fn_control(++format, ap);
-			format++;
+			if (!format[i + 1] || (format[i + 1] == ' ' && !format[i + 2]))
+			{
+				_putchar(format[i]);
+				chars++;
+				break;
+			}
+			chars += fn_control(&format[i + 1], ap);
+			if (chars == 0)
+			{
+				_putchar(format[i + 1]);
+				chars++;
+			}
+			i++;
 		}
-		_putchar(*format);
-		format++;
-		chars++;
+		else
+		{
+			_putchar(format[i]);
+			chars++;
+		}
 	}
 
 	va_end(ap);
