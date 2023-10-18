@@ -17,11 +17,12 @@ int fn_control(const char *s, va_list ap)
 		{'s', _string},
 		{'d', _int},
 		{'i', _int},
+		{'b', _bin}
 	};
 	int i = 0;
 	int chars_printed = 0;
 
-	while (i < 4)
+	while (i < 5)
 	{
 		if (*s == ops[i].specifier)
 			chars_printed += ops[i].control(ap);
