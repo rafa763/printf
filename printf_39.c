@@ -3,8 +3,8 @@
  *  * printf_39 - prints the char 39.
  *   * Return: 1.
  *    */
-int printf_37(void)
+int printf_39(void)
 {
-		_putchar(37);
+		_putchar(39);
 			return (1);
 }
