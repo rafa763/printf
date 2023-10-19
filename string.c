@@ -14,6 +14,10 @@ int _string(va_list ap)
 	char *str = va_arg(ap, char *);
 
 	count = 0;
+
+	if (!str)
+		str = "(null)";
+
 	while (*str)
 	{
 		_putchar(*str++);
