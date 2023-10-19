@@ -77,7 +77,7 @@ char *int_stringify(long int num)
 
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
-		return (-1);
+		return (NULL);
 
 	p = str;
 	while (num)
