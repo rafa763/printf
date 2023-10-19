@@ -23,7 +23,7 @@ typedef struct fn_ops
 /* Function Prototypes */
 int fn_control(const char *s, va_list ap);
 int _putchar(char c);
-char *int_stringify(int num);
+char *int_stringify(long int num);
 int _printf(const char *format, ...);
 int _char(va_list ap);
 int _string(va_list ap);

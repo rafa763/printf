@@ -9,17 +9,23 @@
  */
 int _int(va_list ap)
 {
-	int count;
+	int t, count;
 	char *s, *p;
 
-	s = int_stringify(va_arg(ap, int));
+	t = va_arg(ap, int);
+	if (t == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	s = int_stringify(t);
 	p = s;
 
 	if (*s == '0' && *(s + 1) == 'x')
 		p = base(s, 16);
-	else if (*s == '0' && (*s == 'b' || *s == 'B'))
+	else if (*s == '0' && (*(s + 1) == 'b' || *(s + 1) == 'B'))
 		p = base(s, 2);
-	else if (*s == '0')
+	else if (*s == '0' && *(s + 1))
 		p = base(s, 8);
 
 	count = 0;
@@ -47,14 +53,13 @@ int int_length(int num)
 	return (1 + int_length(num / 10));
 }
 
-
 /**
  * int_stringify - converts a number to a string
  * @num: the passed number to be converted
  *
  * Return: pointer to the converted string (char*)
  */
-char *int_stringify(int num)
+char *int_stringify(long int num)
 {
 	char *str, *p;
 	int negative = 0, len = 0, i;
