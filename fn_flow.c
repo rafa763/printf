@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * fn_control - takes a flag and the argument and calls the
@@ -18,24 +19,27 @@ int fn_control(const char *s, va_list ap)
 		{'d', _int},
 		{'i', _int},
 		{'b', _bin},
-		{'r', _rev}
+		{'r', _rev},
+		{0, NULL}
 	};
 	int i = 0;
 	int chars_printed = 0;
 
-	while (i < 6)
+	while (ops[i].specifier)
 	{
 		if (*s == ops[i].specifier)
 			chars_printed += ops[i].control(ap);
 		i++;
 	}
 
-	if (chars_printed == 0)
-	{
-		_putchar('%');
-		_putchar(*s);
-		chars_printed += 2;
-	}
+	/*
+	*if (chars_printed == 0)
+	*{
+	*	_putchar('%');
+	*	_putchar(*s);
+	*	chars_printed += 2;
+	*}
+	*/
 
 	return (chars_printed);
 }

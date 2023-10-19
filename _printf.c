@@ -13,26 +13,28 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, chars;
+	int i, chars, temp;
 
 	va_start(ap, format);
 
 	chars = 0;
+	temp = 0;
+
+	if (!format)
+		return (-1);
 
 	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
 			if (!format[i + 1] || (format[i + 1] == ' ' && !format[i + 2]))
+				return (-1);
+
+			temp = fn_control(&format[i + 1], ap);
+			chars += temp;
+			if (temp == 0)
 			{
 				_putchar(format[i]);
-				chars++;
-				break;
-			}
-			chars += fn_control(&format[i + 1], ap);
-			if (chars == 0)
-			{
-				_putchar(format[i + 1]);
 				chars++;
 			}
 			i++;
