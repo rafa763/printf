@@ -1,2 +1,2 @@
 #!/bin/bash
-clang @flags *.c
+clang @flags *.c && ./a.out
