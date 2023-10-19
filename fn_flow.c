@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * fn_control - takes a flag and the argument and calls the
@@ -31,14 +32,19 @@ int fn_control(const char *s, va_list ap)
 		i++;
 	}
 
-	/*
+
+	/**
 	*if (chars_printed == 0)
 	*{
+	*	_putchar('z');
 	*	_putchar('%');
 	*	_putchar(*s);
 	*	chars_printed += 2;
 	*}
 	*/
 
+	/**
+	 * printf("cp:%d\n", chars_printed);
+	 */
 	return (chars_printed);
 }

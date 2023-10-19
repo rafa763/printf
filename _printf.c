@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+#include <stdio.h>
 
 /**
  * _printf - function that takes variable number of arguments
@@ -32,12 +33,23 @@ int _printf(const char *format, ...)
 
 			temp = fn_control(&format[i + 1], ap);
 			chars += temp;
-			if (temp == 0)
+
+
+			if (temp == 0 && format[i + 1] == '%')
+			{
+				_putchar(format[i + 1]);
+				chars++;
+				i++;
+			}
+			else if (temp == 0)
 			{
 				_putchar(format[i]);
 				chars++;
 			}
-			i++;
+			else
+			{
+				i++;
+			}
 		}
 		else
 		{
